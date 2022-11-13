@@ -42,7 +42,7 @@ fun HomeScreen(
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Text(text = "Email: $email")
-                    Text(text = "Email: $token")
+                    Text(text = "Token: $token")
                 }
             }
         }
