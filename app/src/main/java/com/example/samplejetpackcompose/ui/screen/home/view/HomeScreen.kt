@@ -31,13 +31,11 @@ fun HomeScreen(
             }) {
             Box(
                 modifier = Modifier
-                    .background(Color.White)
                     .padding(it),
             ) {
                 Column(
                     modifier = Modifier
-                        .fillMaxSize()
-                        .background(Color.White),
+                        .fillMaxSize(),
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {

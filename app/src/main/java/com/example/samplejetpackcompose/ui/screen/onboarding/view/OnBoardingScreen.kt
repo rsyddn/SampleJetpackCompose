@@ -3,8 +3,13 @@ package com.example.samplejetpackcompose.ui.screen.onboarding.view
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.*
-import androidx.compose.runtime.*
+import androidx.compose.material.Button
+import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Text
+import androidx.compose.material.TextField
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.AnnotatedString
@@ -21,7 +26,6 @@ import com.example.samplejetpackcompose.ui.navigation.Routes
 import com.example.samplejetpackcompose.ui.screen.onboarding.view_model.OnBoardingViewModel
 import com.example.samplejetpackcompose.ui.theme.Purple700
 import com.example.samplejetpackcompose.utils.Response
-import timber.log.Timber
 
 
 @Composable
@@ -48,20 +52,6 @@ fun OnBoardingScreen(
 
             }
         }
-    }
-    Box(modifier = Modifier.fillMaxSize()) {
-        Text(
-            text = AnnotatedString("Sign up here"),
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .padding(20.dp),
-            style = TextStyle(
-                fontSize = 14.sp,
-                fontFamily = FontFamily.Default,
-                textDecoration = TextDecoration.Underline,
-                color = Purple700
-            )
-        )
     }
     Column(
         modifier = Modifier.padding(20.dp),
@@ -92,6 +82,7 @@ fun OnBoardingScreen(
                 Text(text = result.message)
             }
             Response.Loading -> {
+                Spacer(modifier = Modifier.height(20.dp))
                 CircularProgressIndicator()
             }
             else -> {
@@ -104,19 +95,13 @@ fun OnBoardingScreen(
             onClick = {
                 viewModel.loginApp(viewModel.email.value, viewModel.password.value)
             },
-            shape = RoundedCornerShape(50.dp),
+            shape = RoundedCornerShape(8.dp),
             modifier = Modifier
                 .fillMaxWidth()
+                .padding(horizontal = 32.dp, vertical = 16.dp)
                 .height(50.dp)
         ) { Text(text = "Login") }
 
         Spacer(modifier = Modifier.height(20.dp))
-        Text(
-            text = AnnotatedString("Forgot password?"),
-            style = TextStyle(
-                fontSize = 14.sp,
-                fontFamily = FontFamily.Default
-            )
-        )
     }
 }
