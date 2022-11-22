@@ -8,7 +8,6 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.samplejetpackcompose.ui.screen.home.view.HomeScreen
 import com.example.samplejetpackcompose.ui.screen.onboarding.view.OnBoardingScreen
-import com.example.samplejetpackcompose.utils.RoutesName
 
 @Composable
 fun Navigation() {
